@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # File & Directory Manager
 # Provides menu-based file operations
 BLUE="\e[34m"
