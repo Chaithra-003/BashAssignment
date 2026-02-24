@@ -1,6 +1,6 @@
-# 🖥 Bash Scripting Assignment – System Administration Toolkit
+#  Bash Scripting Assignment – System Administration Toolkit
 
-## 📌 Overview
+##  Overview
 
 This repository contains 5 Bash scripts developed on Ubuntu Linux for system administration and cybersecurity tasks.
 
@@ -10,9 +10,9 @@ All scripts are compatible with:
 
 ---
 
-## 📂 Scripts Included
+##  Scripts Included
 
-### 1️⃣ q1_system_info.sh
+### 1️)q1_system_info.sh
 Displays detailed system information:
 - OS details
 - Kernel version
@@ -24,7 +24,7 @@ Displays detailed system information:
 
 ---
 
-### 2️⃣ q2_file_manager.sh
+### 2) q2_file_manager.sh
 Menu-driven file and directory manager:
 - Create file
 - Delete file
@@ -39,7 +39,7 @@ Run:
 
 ---
 
-### 3️⃣ q3_log_analyzer.sh
+### 3️) q3_log_analyzer.sh
 Log file analyzer with statistics:
 - Total log entries
 - Unique IP addresses
@@ -54,7 +54,7 @@ Run:
 
 ---
 
-### 4️⃣ q4_backup.sh
+### 4️) q4_backup.sh
 Automated backup script:
 - Simple copy backup
 - Compressed tar.gz backup
@@ -68,7 +68,7 @@ Run:
 
 ---
 
-### 5️⃣ q5_user_report.sh
+### 5️) q5_user_report.sh
 User account reporting and security audit:
 - User statistics
 - Regular user table
@@ -87,7 +87,7 @@ sudo ./q5_user_report.sh
 
 ---
 
-## ⚙ Requirements
+## Requirements
 
 - Ubuntu / Debian Linux
 - Bash Shell
@@ -95,7 +95,7 @@ sudo ./q5_user_report.sh
 
 ---
 
-## 🚀 How to Run All Scripts
+##  How to Run All Scripts
 
 Make scripts executable:
 
@@ -111,7 +111,7 @@ sudo ./q5_user_report.sh
 
 ---
 
-## 📚 Concepts Used
+## Concepts Used
 
 - awk
 - grep
@@ -130,7 +130,7 @@ sudo ./q5_user_report.sh
 
 ---
 
-## 🎯 Learning Outcome
+##  Learning Outcome
 
 This project demonstrates:
 
@@ -143,8 +143,9 @@ This project demonstrates:
 
 ---
 
-## 👩‍💻 Author
+##  Author
 
 Chaithra M  
-Cybersecurity Student  
+1SG22CS020
+Cybersecurity Student 
 Ubuntu Linux Environment
