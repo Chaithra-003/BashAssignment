@@ -2,7 +2,6 @@
 
 # File & Directory Manager
 # Provides menu-based file operations
-# Author: Your Name
 BLUE="\e[34m"
 GREEN="\e[32m"
 RED="\e[31m"
