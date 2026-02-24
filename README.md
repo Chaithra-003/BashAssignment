@@ -145,7 +145,7 @@ This project demonstrates:
 
 ##  Author
 
-Chaithra M  
-1SG22CS020
-Cybersecurity Student 
-Ubuntu Linux Environment
+Chaithra M 
+1SG22CS020,
+Cybersecurity Student, 
+Ubuntu Linux Environment.
