@@ -1,0 +1,13 @@
+# Backup files
+*.tar.gz
+
+# Logs
+*.log
+
+# Generated reports
+user_report_*.txt
+user_report_*.html
+
+# Test folders
+test_backup/
+chaii/
