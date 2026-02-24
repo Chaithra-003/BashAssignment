@@ -1,8 +1,6 @@
 #!/bin/bash
-
 # Automated Backup Script
 # Creates simple or compressed backups with timestamp
-# Author: Your Name
 BLUE="\e[34m"
 GREEN="\e[32m"
 RED="\e[31m"
@@ -53,7 +51,7 @@ if [ -e "$DEST/$BACKUP_NAME" ]; then
 else
     echo -e "${RED}Backup failed!${RESET}"
 fi
-# ===== Backup Rotation (Keep Last 5 Backups) =====
+# ===== Backup Rotation(Keep Last 5 Backups)=====
 
 echo -e "\n${YELLOW}Checking old backups...${RESET}"
 BACKUP_FILES=$(ls -t "$DEST"/backup_* 2>/dev/null | grep backup_)
