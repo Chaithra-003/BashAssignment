@@ -1,9 +1,6 @@
 #!/bin/bash
-
 # Log File Analyzer Script
 # Analyzes web server log and generates statistics
-# Author: Your Name
-
 # ===== Color Codes =====
 BLUE="\e[34m"
 GREEN="\e[32m"
