@@ -1,14 +1,14 @@
 #!/bin/bash
 # Log File Analyzer Script
 # Analyzes web server log and generates statistics
-# ===== Color Codes =====
+#  Color Codes
 BLUE="\e[34m"
 GREEN="\e[32m"
 RED="\e[31m"
 YELLOW="\e[33m"
 RESET="\e[0m"
 
-# ===== Argument Check =====
+#  Argument Check
 if [ $# -ne 1 ]; then
     echo -e "${RED}Usage: $0 <logfile>${RESET}"
     exit 1
@@ -16,7 +16,7 @@ fi
 
 LOGFILE=$1
 
-# ===== File Validation =====
+#  File Validation
 if [ ! -f "$LOGFILE" ]; then
     echo -e "${RED}Error: File not found!${RESET}"
     exit 1
@@ -27,43 +27,43 @@ if [ ! -s "$LOGFILE" ]; then
     exit 1
 fi
 
-# ===== Header =====
+#  Header 
 echo -e "${BLUE}╔══════════════════════════════════════════╗${RESET}"
 echo -e "${BLUE}║${GREEN}           LOG FILE ANALYSIS              ${BLUE}║${RESET}"
 echo -e "${BLUE}╚══════════════════════════════════════════╝${RESET}"
 
-# ===== Total Entries =====
+#  Total Entries
 TOTAL=$(wc -l < "$LOGFILE")
 echo -e "\n${GREEN}Total Entries:${RESET} $TOTAL"
 
-# ===== Unique IP Addresses =====
+#  Unique IP Addresses
 echo -e "\n${GREEN}Unique IP Addresses:${RESET}"
 awk '{print $1}' "$LOGFILE" | sort | uniq
 
 IP_COUNT=$(awk '{print $1}' "$LOGFILE" | sort | uniq | wc -l)
 echo -e "Total Unique IPs: $IP_COUNT"
 
-# ===== Status Code Summary =====
+#  Status Code Summary 
 echo -e "\n${GREEN}Status Code Summary:${RESET}"
 awk '{print $NF}' "$LOGFILE" | sort | uniq -c | while read count code
 do
     echo "  $code : $count requests"
 done
 
-# ===== Most Accessed Page =====
+#  Most Accessed Page 
 MOST_PAGE=$(awk -F\" '{print $2}' "$LOGFILE" | awk '{print $2}' | sort | uniq -c | sort -nr | head -1)
 
 echo -e "\n${GREEN}Most Accessed Page:${RESET}"
 echo "$MOST_PAGE"
 
-# ===== Top 3 IP Addresses =====
+# Top 3 IP Addresses 
 echo -e "\n${GREEN}Top 3 IP Addresses:${RESET}"
 awk '{print $1}' "$LOGFILE" | sort | uniq -c | sort -nr | head -3 | while read count ip
 do
     echo "  $ip - $count requests"
 done
 
-# ===== Security Threat Detection =====
+# Security Threat Detection 
 echo -e "\n${YELLOW}Security Threat Detection:${RESET}"
 
 SUSPICIOUS_IPS=$(awk '$NF == 403 {print $1}' "$LOGFILE" | sort | uniq -c | awk '$1 > 2')
@@ -78,7 +78,7 @@ else
 fi
 
 
-# ===== Date Range Analysis=====
+#  Date Range Analysis
 echo -e "\n${GREEN}Date Range Analysis:${RESET}"
 
 FIRST_DATE=$(awk -F'[][]' '{print $2}' "$LOGFILE" | head -1)
