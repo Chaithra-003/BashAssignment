@@ -1,22 +1,18 @@
 #!/bin/bash
-
-# ==========================================================
 # USER ACCOUNT REPORTER WITH SECURITY CHECKS 
-# ==========================================================
-
-# -------- COLORS --------
+# COLORS 
 BLUE="\e[34m"
 GREEN="\e[32m"
 RED="\e[31m"
 YELLOW="\e[33m"
 RESET="\e[0m"
 
-# -------- SAVE REPORT TO FILE --------
+#SAVE REPORT TO FILE
 REPORT_FILE="user_report_$(date +%Y%m%d_%H%M%S).txt"
 exec > >(tee -a "$REPORT_FILE")
 exec 2>&1
 
-# -------- HEADER --------
+#  HEADER
 echo -e "${BLUE}╔══════════════════════════════════════════╗${RESET}"
 echo -e "${BLUE}║${GREEN}        USER ACCOUNT REPORT               ${BLUE}║${RESET}"
 echo -e "${BLUE}╚══════════════════════════════════════════╝${RESET}"
