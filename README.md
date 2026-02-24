@@ -130,7 +130,7 @@ sudo ./q5_user_report.sh
 
 ---
 
-##  Learning Outcome
+## Learning Outcomes
 
 This project demonstrates:
 
