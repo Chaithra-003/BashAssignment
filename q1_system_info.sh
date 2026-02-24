@@ -1,7 +1,7 @@
 #!/bin/bash
 # This script displays system information
-# Author: Your Name
-# Date: $(date)
+# Author: Chaithra M
+# Date: 24/02/2024
 USERNAME=$(whoami)
 HOSTNAME=$(hostname)
 DATE_TIME=$(date "+%Y-%m-%d %H:%M:%S")
