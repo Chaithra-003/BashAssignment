@@ -1,0 +1,11 @@
+==============================================
+        LOG FILE ANALYSIS REPORT
+File analyzed: testlog.txt
+==============================================
+Total Lines    : 4
+Total Words    : 10
+Total Chars    : 67
+Error Lines    : 1
+Warning Lines  : 1
+Info Lines     : 2
+==============================================

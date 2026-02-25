@@ -1,0 +1,163 @@
+[34m╔══════════════════════════════════════════╗[0m
+[34m║[32m        USER ACCOUNT REPORT               [34m║[0m
+[34m╚══════════════════════════════════════════╝[0m
+
+[32m=== USER STATISTICS ===[0m
+Total Users              : 28
+System Users (UID <1000) : 26
+Regular Users (UID>=1000): 2
+Currently Logged In      : 1
+
+[32m=== REGULAR USER DETAILS ===[0m
+Username        UID      Home Directory            Shell          
+--------        ---      --------------            -----          
+nobody          65534    /nonexistent              /usr/sbin/nologin
+shwet           1000     /home/shwet               /bin/bash      
+
+[32m=== GROUP INFORMATION ===[0m
+
+All Groups:
+root
+daemon
+bin
+sys
+adm
+tty
+disk
+lp
+mail
+news
+uucp
+man
+proxy
+kmem
+dialout
+fax
+voice
+cdrom
+floppy
+tape
+sudo
+audio
+dip
+www-data
+backup
+operator
+list
+irc
+src
+shadow
+utmp
+video
+sasl
+plugdev
+staff
+games
+users
+nogroup
+systemd-journal
+systemd-network
+crontab
+systemd-timesync
+input
+sgx
+kvm
+render
+messagebus
+syslog
+systemd-resolve
+uuidd
+_ssh
+landscape
+polkitd
+admin
+netdev
+shwet
+ssl-cert
+
+Group Member Counts:
+root                 0 members
+daemon               0 members
+bin                  0 members
+sys                  0 members
+adm                  2 members
+tty                  0 members
+disk                 0 members
+lp                   0 members
+mail                 0 members
+news                 0 members
+uucp                 0 members
+man                  0 members
+proxy                0 members
+kmem                 0 members
+dialout              0 members
+fax                  0 members
+voice                0 members
+cdrom                1 members
+floppy               0 members
+tape                 0 members
+sudo                 1 members
+audio                0 members
+dip                  1 members
+www-data             0 members
+backup               0 members
+operator             0 members
+list                 0 members
+irc                  0 members
+src                  0 members
+shadow               0 members
+utmp                 0 members
+video                0 members
+sasl                 0 members
+plugdev              1 members
+staff                0 members
+games                0 members
+users                1 members
+nogroup              0 members
+systemd-journal      0 members
+systemd-network      0 members
+crontab              0 members
+systemd-timesync     0 members
+input                0 members
+sgx                  0 members
+kvm                  0 members
+render               0 members
+messagebus           0 members
+syslog               0 members
+systemd-resolve      0 members
+uuidd                0 members
+_ssh                 0 members
+landscape            0 members
+polkitd              0 members
+admin                0 members
+netdev               0 members
+shwet                0 members
+ssl-cert             0 members
+
+[33m=== SECURITY CHECKS ===[0m
+
+Users with UID 0 (Root Privileges):
+root
+
+Users Without Passwords:
+dhcpcd
+messagebus
+syslog
+uuidd
+landscape
+
+Inactive Users (Never Logged In):
+
+Password Expiry Information:
+nobody →  never
+shwet →  never
+
+Users with Dangerous Shells (/bin/bash or /bin/sh):
+root → /bin/bash
+shwet → /bin/bash
+
+Service Accounts Using /bin/false:
+dhcpcd
+
+[32mReport saved to: user_report_20260225_020950.txt[0m
+[32mHTML report generated: user_report_20260225_020950.html[0m

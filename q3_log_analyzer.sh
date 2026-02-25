@@ -1,88 +1,62 @@
 #!/bin/bash
-# Log File Analyzer Script
-# Analyzes web server log and generates statistics
-#  Color Codes
-BLUE="\e[34m"
-GREEN="\e[32m"
-RED="\e[31m"
-YELLOW="\e[33m"
-RESET="\e[0m"
+# q3_log_analyzer.sh - Analyze log file statistics
+# Author: Chaithra M
+# Date: 24/02/2024
+# Saves analysis to log_analysis_report.txt
 
-#  Argument Check
-if [ $# -ne 1 ]; then
-    echo -e "${RED}Usage: $0 <logfile>${RESET}"
+# -------------------------------
+# Output file
+# -------------------------------
+output="log_analysis_report.txt"
+
+# -------------------------------
+# Prompt user for log file
+# -------------------------------
+read -p "Enter path to the log file: " logfile
+
+# Check if file exists
+if [[ ! -f "$logfile" ]]; then
+    echo "Error: File '$logfile' not found."
     exit 1
 fi
 
-LOGFILE=$1
+# -------------------------------
+# Gather log statistics
+# -------------------------------
+TOTAL_LINES=$(wc -l < "$logfile")
+TOTAL_WORDS=$(wc -w < "$logfile")
+TOTAL_CHARS=$(wc -m < "$logfile")
+ERROR_LINES=$(grep -i "error" "$logfile" | wc -l)
+WARNING_LINES=$(grep -i "warning" "$logfile" | wc -l)
+INFO_LINES=$(grep -i "info" "$logfile" | wc -l)
 
-#  File Validation
-if [ ! -f "$LOGFILE" ]; then
-    echo -e "${RED}Error: File not found!${RESET}"
-    exit 1
-fi
+# -------------------------------
+# Write to output file
+# -------------------------------
+{
+echo "=============================================="
+echo "        LOG FILE ANALYSIS REPORT"
+echo "File analyzed: $logfile"
+echo "=============================================="
+echo "Total Lines    : $TOTAL_LINES"
+echo "Total Words    : $TOTAL_WORDS"
+echo "Total Chars    : $TOTAL_CHARS"
+echo "Error Lines    : $ERROR_LINES"
+echo "Warning Lines  : $WARNING_LINES"
+echo "Info Lines     : $INFO_LINES"
+echo "=============================================="
+} > "$output"
 
-if [ ! -s "$LOGFILE" ]; then
-    echo -e "${YELLOW}Log file is empty.${RESET}"
-    exit 1
-fi
-
-#  Header 
-echo -e "${BLUE}╔══════════════════════════════════════════╗${RESET}"
-echo -e "${BLUE}║${GREEN}           LOG FILE ANALYSIS              ${BLUE}║${RESET}"
-echo -e "${BLUE}╚══════════════════════════════════════════╝${RESET}"
-
-#  Total Entries
-TOTAL=$(wc -l < "$LOGFILE")
-echo -e "\n${GREEN}Total Entries:${RESET} $TOTAL"
-
-#  Unique IP Addresses
-echo -e "\n${GREEN}Unique IP Addresses:${RESET}"
-awk '{print $1}' "$LOGFILE" | sort | uniq
-
-IP_COUNT=$(awk '{print $1}' "$LOGFILE" | sort | uniq | wc -l)
-echo -e "Total Unique IPs: $IP_COUNT"
-
-#  Status Code Summary 
-echo -e "\n${GREEN}Status Code Summary:${RESET}"
-awk '{print $NF}' "$LOGFILE" | sort | uniq -c | while read count code
-do
-    echo "  $code : $count requests"
-done
-
-#  Most Accessed Page 
-MOST_PAGE=$(awk -F\" '{print $2}' "$LOGFILE" | awk '{print $2}' | sort | uniq -c | sort -nr | head -1)
-
-echo -e "\n${GREEN}Most Accessed Page:${RESET}"
-echo "$MOST_PAGE"
-
-# Top 3 IP Addresses 
-echo -e "\n${GREEN}Top 3 IP Addresses:${RESET}"
-awk '{print $1}' "$LOGFILE" | sort | uniq -c | sort -nr | head -3 | while read count ip
-do
-    echo "  $ip - $count requests"
-done
-
-# Security Threat Detection 
-echo -e "\n${YELLOW}Security Threat Detection:${RESET}"
-
-SUSPICIOUS_IPS=$(awk '$NF == 403 {print $1}' "$LOGFILE" | sort | uniq -c | awk '$1 > 2')
-
-if [ -z "$SUSPICIOUS_IPS" ]; then
-    echo -e "${GREEN}No suspicious activity detected.${RESET}"
-else
-    echo "$SUSPICIOUS_IPS" | while read count ip
-    do
-        echo -e "${RED}⚠ Suspicious IP: $ip ($count forbidden requests)${RESET}"
-    done
-fi
-
-
-#  Date Range Analysis
-echo -e "\n${GREEN}Date Range Analysis:${RESET}"
-
-FIRST_DATE=$(awk -F'[][]' '{print $2}' "$LOGFILE" | head -1)
-LAST_DATE=$(awk -F'[][]' '{print $2}' "$LOGFILE" | tail -1)
-
-echo "  First Log Entry : $FIRST_DATE"
-echo "  Last Log Entry  : $LAST_DATE"
+# -------------------------------
+# Display report to terminal
+# -------------------------------
+echo "Log analysis report for '$logfile':"
+echo "----------------------------------------------"
+echo "Total Lines    : $TOTAL_LINES"
+echo "Total Words    : $TOTAL_WORDS"
+echo "Total Chars    : $TOTAL_CHARS"
+echo "Error Lines    : $ERROR_LINES"
+echo "Warning Lines  : $WARNING_LINES"
+echo "Info Lines     : $INFO_LINES"
+echo "----------------------------------------------"
+echo "Report saved to $output"

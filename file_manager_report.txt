@@ -1,0 +1,14 @@
+[34m╔══════════════════════════════════════╗[0m
+[34m║[32m        FILE & DIRECTORY MANAGER     [34m║[0m
+[34m╠══════════════════════════════════════╣[0m
+[34m║ 1. List files                       ║[0m
+[34m║ 2. Create new directory             ║[0m
+[34m║ 3. Create new file                  ║[0m
+[34m║ 4. Delete a file                    ║[0m
+[34m║ 5. Rename a file                    ║[0m
+[34m║ 6. Search for a file                ║[0m
+[34m║ 7. Count files & directories        ║[0m
+[34m║ 8. View file permissions            ║[0m
+[34m║ 9. Copy a file                      ║[0m
+[34m║10. Exit                             ║[0m
+[34m╚══════════════════════════════════════╝[0m
