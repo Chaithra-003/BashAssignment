@@ -25,3 +25,5 @@ python3 nmap_scanner.py
 
 ### Nmap Output
 ![Nmap](screenshots/nmap_output1.png)
+![Nmap](screenshots/nmap_output2.png)
+
